@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+// https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -21,6 +21,11 @@ const router = createRouter({
       path: '/events',
       name: 'events',
       component: () => import('../views/EventsView.vue')
+    },
+    {
+      path: '/counter',
+      name: 'counter',
+      component: () => import('../views/CounterView.vue')
     }
   ]
 })
