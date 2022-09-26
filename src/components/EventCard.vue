@@ -1,15 +1,19 @@
 <script setup lang="ts">
-import type { Event } from '../views/EventsView.vue'
+import type { EventInfo } from '@/interfaces/EventInfo'
+
 const props = defineProps<{
-  event: Event
+  event: EventInfo
 }>()
 </script>
 <template>
-  <div class="event-card">
+  <router-link
+    :to="{ name: 'EventDetails', params: { id: event.id } }"
+    class="event-card"
+  >
     <!-- Display event data -->
     <span>@{{ props.event.time }} on {{ props.event.date }}</span>
     <h4>{{ props.event.title }}</h4>
-  </div>
+  </router-link>
 </template>
 <style scoped>
 .event-card {

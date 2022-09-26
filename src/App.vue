@@ -17,10 +17,10 @@ import HelloWorld from './components/HelloWorld.vue'
       <HelloWorld msg="You did it!" />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/events">Events</RouterLink>
-        <RouterLink to="/counter">Counter</RouterLink>
+        <RouterLink :to="{ name: 'Home' }">Home</RouterLink>
+        <RouterLink :to="{ name: 'About' }">About</RouterLink>
+        <RouterLink :to="{ name: 'Events' }">Events</RouterLink>
+        <RouterLink :to="{ name: 'Counter' }">Counter</RouterLink>
       </nav>
     </div>
   </header>
