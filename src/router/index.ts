@@ -12,7 +12,6 @@ const router = createRouter({
     {
       path: '/about',
       name: 'About',
-      props: (route) => ({ page: route.query.e }),
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -26,21 +25,26 @@ const router = createRouter({
     },
     {
       path: '/event/:id',
-      name: 'EventDetails',
+      name: 'EventLayout',
       props: true,
-      component: () => import('../views/event/EventDetails.vue')
-    },
-    {
-      path: '/event/:id/register',
-      name: 'EventRegister',
-      props: true,
-      component: () => import('../views/event/EventRegister.vue')
-    },
-    {
-      path: '/event/:id/edit',
-      name: 'EventEdit',
-      props: true,
-      component: () => import('../views/event/EventEdit.vue')
+      component: () => import('../views/event/EventLayout.vue'),
+      children: [
+        {
+          path: '',
+          name: 'EventDetails',
+          component: () => import('../views/event/EventDetails.vue')
+        },
+        {
+          path: 'register',
+          name: 'EventRegister',
+          component: () => import('../views/event/EventRegister.vue')
+        },
+        {
+          path: 'edit',
+          name: 'EventEdit',
+          component: () => import('../views/event/EventEdit.vue')
+        }
+      ]
     },
     {
       path: '/counter',
