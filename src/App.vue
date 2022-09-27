@@ -18,13 +18,17 @@ import HelloWorld from './components/HelloWorld.vue'
 
       <nav>
         <RouterLink :to="{ name: 'Home' }">Home</RouterLink>
-        <RouterLink :to="{ name: 'About' }">About</RouterLink>
-        <RouterLink :to="{ name: 'Events' }">Events</RouterLink>
+        <RouterLink :to="{ name: 'About', query: { e: 'true' } }"
+          >About</RouterLink
+        >
+        <RouterLink :to="{ name: 'EventList' }">Events</RouterLink>
         <RouterLink :to="{ name: 'Counter' }">Counter</RouterLink>
       </nav>
     </div>
   </header>
 
+  <!-- First way to refresh the page -->
+  <!-- <RouterView :key="$route.fullPath" /> -->
   <RouterView />
 </template>
 

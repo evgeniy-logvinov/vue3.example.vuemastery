@@ -26,7 +26,6 @@ const appInfo: AppInfo = reactive({
 })
 
 function onSubmit() {
-  console.log()
   if (name.value === '' || review.value === '' || rating.value === null) {
     alert('Please fill info firstly')
     return

@@ -5,6 +5,7 @@ import ReviewCounter from '../components/ReviewCounter.vue'
 import type { ReviewItem } from '@/interfaces/ReviewItem'
 
 const reviews = reactive<ReviewItem[]>([])
+const props = defineProps<{ showExtra: boolean }>()
 
 function reviewSubmitted(review: ReviewItem) {
   reviews.push(review)
@@ -12,6 +13,7 @@ function reviewSubmitted(review: ReviewItem) {
 </script>
 <template>
   <div class="review">
+    <h1>Show extra: {{ props.showExtra }}</h1>
     <div v-if="reviews.length">Reviews: {{ reviews }}</div>
     <ReviewInfo @review-submitted="reviewSubmitted"></ReviewInfo>
     <ReviewCounter :limit="20"></ReviewCounter>
