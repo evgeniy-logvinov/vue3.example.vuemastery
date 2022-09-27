@@ -85,7 +85,7 @@ watchEffect(() => {
   .pagination a {
     flex: 1;
     text-decoration: none;
-    color: #2c3e50;
+    color: var(--color-text);
   }
 
   #page-prev {
